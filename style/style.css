@@ -1,0 +1,238 @@
+@charset "UTF-8";
+
+/* 
+Paleta de cores: 
+#819586
+#36D14C
+#36A24C
+#3C7948
+#344E39
+#29332B
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+@font-face {
+    font-family: "Idroid";
+    src: url("../fonts/idroid.otf") format("opentype");
+    font-weight: normal;
+}
+
+:root { /* Raiz da árvore do documento, onde são declaradas as variáveis globais */
+    --cor0: #819586;
+    --cor1: #36D14C;
+    --cor2: #36A24C ;
+    --cor3: #3C7948;
+    --cor4: #344E39;
+    --cor5: #29332B;
+
+    --fonte-padrao: Arial, Verdana, Helvetica, sans-serif;
+    --fonte-destaque: 'Bebas Neue', cursive;
+    --fonte-android: 'Idroid', cursive;
+}
+
+* { /* Assim se configura uma seleção global */
+    margin: 0px;
+    padding: 0px; /* Assim eu consigo retirar a configuração padrão das CSS/navegador e começar a configurar o site */
+}
+
+body {
+    background-color: var(--cor0); /* Assim estou usando a variável */
+    font-family: var(--fonte-padrao);
+
+}
+
+header {
+    background-image: linear-gradient(to bottom, var(--cor2), var(--cor3), var(--cor4));
+    min-height: 150px;
+    text-align: center;
+    padding-top: 30px;
+    
+}
+
+header > h1 {
+    color: white;
+    font-family: var(--fonte-destaque);
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-shadow: 2px 3px 0px rgba(0, 0, 0, 0.342); /* Semrpe evitar sombra preta */
+    font-weight: normal;
+}
+
+header > p {
+    color: white;
+    font-size: 1.2em;
+    color: white;
+    max-width: 500px; /* Usamos max-width para garantir que o elemento não ultrapasse 500px em telas grandes, mas se adapte e ocupe 100% da largura disponível em telas menores, evitando scroll horizontal. Isso torna o design responsivo. */ 
+    padding: 0px 10px 0px 10px; /* direita e esquerda */
+    margin: auto;
+
+}
+
+nav {
+    background-color: var(--cor5);
+    padding: 10px;
+    box-shadow: 0xp 7px 7px rgba(0, 0, 0, 0.329);
+}
+
+nav > a {
+    color: var(--cor2);
+    padding: 10px;
+    text-decoration: none;
+    font-weight: normal;
+    /* transition-duration: 0.5s; */ /* Define a duração da transição. Controla a velocidade da animação, tornando a mudança de cor suave em 0.5 segundos. */
+}
+
+nav > a:hover { /* Estilo do link ao passar o mouse (hover). Muda a cor de fundo e a cor do texto para dar feedback visual. */
+    background-color: var(--cor4);
+    color: var(--cor2);
+}
+
+main {
+    background-color: white;
+    min-width: 300px;
+    max-width: 1000px;
+    margin: auto;
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0px 0px 10px black; /* Arescenta uma sombra */
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+a.externo::after {
+    content: '\00A0\1F517';
+}
+
+main h1 {
+    font-family: var(--fonte-android);
+    color: var(--cor5);
+    
+}
+
+main h2 {
+    font-family: var(--fonte-android);
+    color: var(--cor4);
+    font-size: 1.3em;
+    background-image: linear-gradient(to right, var(--cor1), transparent); /* Cria um gradiente horizontal, que vai da cor1 (esquerda) até a transparência (direita). */
+}
+
+main p { /* Seleciona todos os parágrafos (<p>) que estão em qualquer nível dentro da tag <main>. */
+    margin: 15px 0px; /* cima, baixo e esquerda, direita */
+    text-align: justify;
+    text-indent: 2em;
+    font-size: 1em;
+    line-height: 1.5em;
+}
+
+main strong {
+    color: var(--cor5);
+    font-weight: bold;
+}
+
+main a {
+    text-decoration: none;
+    font-weight: bold;
+    background-color: var(--cor2);
+    border-radius: 10px;
+    padding: 2px 6px;
+}
+
+main a:hover {
+    text-decoration: underline;
+    color: var(--cor4);
+}
+
+
+main img {
+    width: 100%; /* Isso faz com que as images se expandam */
+}
+
+main img.pequena {
+    max-width: 350px; 
+    display: block; /* Assim eu transformo a imagem em um bloco */
+    margin: auto;
+}
+
+div.video {
+    background-color: var(--cor5);
+    margin: 30px 20px 30px 20px;
+    padding: 20px;
+    padding-bottom: 56.25%;
+    position: relative;
+}
+
+div.video > iframe { /* Estiliza o iframe do vídeo do YouTube que está dentro da div.video. */
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    height: 90%
+}
+
+/*
+ * div.video: O contêiner pai do vídeo.
+ * - padding-bottom: 56.25% é usado como uma técnica para manter a proporção de aspecto (16:9) do vídeo,
+ * tornando-o responsivo. A altura do contêiner é definida proporcionalmente à sua largura.
+ * - position: relative é essencial para que o iframe (filho) possa ser posicionado de forma absoluta dentro dele.
+ *
+ * div.video > iframe: O elemento real do vídeo do YouTube.
+ * - position: absolute permite que o iframe preencha completamente o contêiner.
+ * - top, left, width e height controlam a posição e o tamanho do vídeo para que ele preencha 
+ * a área do contêiner, adaptando-se a qualquer tela.
+ */
+
+aside {
+    background-color: var(--cor2);
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.267);
+}
+
+aside h3 {
+    background-color: var(--cor4);
+    color: white;
+    padding: 10px; 
+    margin: -10px -10px 0 -10px; /* Assim faz com que a margem expanda para fora! Usando margem negativa. */
+    border-radius: 10px 10px 0px 0px;
+}
+
+aside ul {
+    list-style-type: '\2714\00A0'; /* Achei no emojipedia. 00A0 é o espaço sem quebra */
+    list-style-position: inside; /* Assim coloco a bolinha para o lado de dentro */
+    columns: 2; /* Assim crio colunas */
+    padding-left: 5em; /* Isso eu que incluí para deixar mais centralizado */
+}
+
+aside a {
+    text-decoration: none;
+    color: var(--cor5);
+}
+
+aside a:hover {
+    background-color: var(--cor1);
+    text-decoration: none;
+    border-radius: 10px;
+}
+
+footer {
+    background-color: var(--cor5);
+    color: white;
+    text-align: center;
+    font-size: 0.8em;
+}
+
+footer a {
+    color: white;
+    font-weight: bolder;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+    color: var(--cor3);
+}
+
+
+
